@@ -1,0 +1,219 @@
+/* Manthan 2.0 - Custom Styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #0dcaf0;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Customization */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    font-weight: 600;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #0d6efd, #0b5ed7);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #198754, #157347);
+    border: none;
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, #ffc107, #ffca2c);
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #dc3545, #bb2d3b);
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Landing Page */
+.hero-section {
+    background: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.7)), 
+                url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    border-radius: 0 0 50px 50px;
+    margin-bottom: 50px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Dashboard Cards */
+.stat-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.stat-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Table Styling */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(45deg, #0d6efd, #0b5ed7);
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Alert Styling */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(45deg, #0d6efd, #0b5ed7);
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-radius: 50px 50px 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge Customization */
+.badge {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* List Group */
+.list-group-item {
+    border: none;
+    border-radius: 8px !important;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.list-group-item.active {
+    background: linear-gradient(45deg, #0d6efd, #0b5ed7);
+    border: none;
+}
+
+/* Progress Bar */
+.progress {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    border-radius: 5px;
+}
