@@ -1,0 +1,18 @@
+# Node
+node_modules/
+
+# Java
+target/
+*.class
+
+# Python
+__pycache__/
+.venv/
+
+# Build folders
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
