@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -508,4 +509,516 @@
         displayStudents();
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship System - Assignment 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 30px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            border-color: #ff6b6b;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+        
+        .data-section {
+            padding: 0 30px 30px;
+        }
+        
+        .section-title {
+            color: #333;
+            margin: 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background: #fff9f9;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .edit-btn {
+            background: #4ecdc4;
+            color: white;
+            margin-right: 5px;
+        }
+        
+        .delete-btn {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .active {
+            background: #c7f9cc;
+            color: #2d6a4f;
+        }
+        
+        .completed {
+            background: #e2e2e2;
+            color: #666;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            animation: slideIn 0.5s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🎓 Internship Registration System</h1>
+            <p>Manage student internships and companies</p>
+        </div>
+        
+        <div class="controls">
+            <div class="card">
+                <h3>Add New Student</h3>
+                <div class="input-group">
+                    <label>Student ID</label>
+                    <input type="text" id="studentId" placeholder="e.g., S001">
+                </div>
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="studentName" placeholder="Enter student name">
+                </div>
+                <div class="input-group">
+                    <label>Branch</label>
+                    <select id="studentBranch">
+                        <option value="">Select Branch</option>
+                        <option value="CSE">Computer Science</option>
+                        <option value="ISE">Information Science</option>
+                        <option value="ECE">Electronics</option>
+                        <option value="ME">Mechanical</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="addStudent()">➕ Add Student</button>
+            </div>
+            
+            <div class="card">
+                <h3>Register Internship</h3>
+                <div class="input-group">
+                    <label>Student ID</label>
+                    <input type="text" id="internStudentId" placeholder="Enter student ID">
+                </div>
+                <div class="input-group">
+                    <label>Company Name</label>
+                    <input type="text" id="companyName" placeholder="Enter company name">
+                </div>
+                <div class="input-group">
+                    <label>Duration (months)</label>
+                    <input type="number" id="duration" min="1" max="12" value="3">
+                </div>
+                <button class="btn" onclick="registerInternship()">📝 Register Internship</button>
+            </div>
+            
+            <div class="card">
+                <h3>Update Duration</h3>
+                <div class="input-group">
+                    <label>Internship ID</label>
+                    <input type="text" id="updateInternId" placeholder="Enter internship ID">
+                </div>
+                <div class="input-group">
+                    <label>New Duration</label>
+                    <input type="number" id="newDuration" min="1" max="12" value="6">
+                </div>
+                <button class="btn" onclick="updateDuration()">🔄 Update Duration</button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <div id="message" class="message" style="display: none;"></div>
+            
+            <h2 class="section-title">📋 All Internships</h2>
+            <div class="table-container">
+                <table id="internshipsTable">
+                    <thead>
+                        <tr>
+                            <th>Internship ID</th>
+                            <th>Company Name</th>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Branch</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="internshipsBody">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 40px;">👥 Student List</h2>
+            <div class="table-container">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Internship Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsBody">
+                        <!-- Students will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize data
+        let students = JSON.parse(localStorage.getItem('students')) || [
+            { studentId: 'S001', name: 'Rahul Sharma', branch: 'CSE' },
+            { studentId: 'S002', name: 'Priya Patel', branch: 'ISE' },
+            { studentId: 'S003', name: 'Amit Kumar', branch: 'ECE' }
+        ];
+        
+        let internships = JSON.parse(localStorage.getItem('internships')) || [
+            { internshipId: 'INT001', companyName: 'Google', studentId: 'S001', duration: 6, status: 'active' },
+            { internshipId: 'INT002', companyName: 'Microsoft', studentId: 'S002', duration: 3, status: 'active' }
+        ];
+
+        // Save to localStorage
+        function saveData() {
+            localStorage.setItem('students', JSON.stringify(students));
+            localStorage.setItem('internships', JSON.stringify(internships));
+        }
+
+        function showMessage(text, type) {
+            const msgDiv = document.getElementById('message');
+            msgDiv.textContent = text;
+            msgDiv.className = `message ${type}`;
+            msgDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                msgDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        function addStudent() {
+            const studentId = document.getElementById('studentId').value.trim();
+            const name = document.getElementById('studentName').value.trim();
+            const branch = document.getElementById('studentBranch').value;
+            
+            if(!studentId || !name || !branch) {
+                showMessage('Please fill all student details', 'error');
+                return;
+            }
+            
+            if(students.find(s => s.studentId === studentId)) {
+                showMessage('Student ID already exists!', 'error');
+                return;
+            }
+            
+            students.push({ studentId, name, branch });
+            saveData();
+            showMessage(`Student ${name} added successfully!`, 'success');
+            displayStudents();
+            
+            // Clear form
+            document.getElementById('studentId').value = '';
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentBranch').value = '';
+        }
+
+        function registerInternship() {
+            const studentId = document.getElementById('internStudentId').value.trim();
+            const companyName = document.getElementById('companyName').value.trim();
+            const duration = parseInt(document.getElementById('duration').value);
+            
+            if(!studentId || !companyName || !duration) {
+                showMessage('Please fill all internship details', 'error');
+                return;
+            }
+            
+            // Check if student exists
+            let student = students.find(s => s.studentId === studentId);
+            if(!student) {
+                showMessage('Student not found! Please add student first.', 'error');
+                return;
+            }
+            
+            // Generate internship ID
+            const internshipId = 'INT' + (internships.length + 1).toString().padStart(3, '0');
+            
+            internships.push({
+                internshipId,
+                companyName,
+                studentId,
+                duration,
+                status: 'active'
+            });
+            
+            saveData();
+            showMessage(`Internship registered! ID: ${internshipId}`, 'success');
+            displayInternships();
+            
+            // Clear form
+            document.getElementById('internStudentId').value = '';
+            document.getElementById('companyName').value = '';
+            document.getElementById('duration').value = '3';
+        }
+
+        function updateDuration() {
+            const internshipId = document.getElementById('updateInternId').value.trim();
+            const newDuration = parseInt(document.getElementById('newDuration').value);
+            
+            if(!internshipId || !newDuration) {
+                showMessage('Please enter internship ID and duration', 'error');
+                return;
+            }
+            
+            const internship = internships.find(i => i.internshipId === internshipId);
+            if(!internship) {
+                showMessage('Internship not found!', 'error');
+                return;
+            }
+            
+            internship.duration = newDuration;
+            saveData();
+            showMessage(`Duration updated to ${newDuration} months`, 'success');
+            displayInternships();
+            
+            // Clear form
+            document.getElementById('updateInternId').value = '';
+            document.getElementById('newDuration').value = '6';
+        }
+
+        function displayInternships() {
+            const tbody = document.getElementById('internshipsBody');
+            let html = '';
+            
+            internships.forEach(internship => {
+                const student = students.find(s => s.studentId === internship.studentId);
+                const studentName = student ? student.name : 'Not Found';
+                const studentBranch = student ? student.branch : 'N/A';
+                
+                html += `
+                <tr>
+                    <td>${internship.internshipId}</td>
+                    <td>${internship.companyName}</td>
+                    <td>${internship.studentId}</td>
+                    <td>${studentName}</td>
+                    <td>${studentBranch}</td>
+                    <td>${internship.duration} months</td>
+                    <td><span class="status-badge ${internship.status}">${internship.status}</span></td>
+                    <td>
+                        <button class="action-btn edit-btn" onclick="editInternship('${internship.internshipId}')">Edit</button>
+                        <button class="action-btn delete-btn" onclick="deleteInternship('${internship.internshipId}')">Delete</button>
+                    </td>
+                </tr>`;
+            });
+            
+            tbody.innerHTML = html || '<tr><td colspan="8" style="text-align:center;padding:40px;">No internships found. Register one!</td></tr>';
+        }
+
+        function displayStudents() {
+            const tbody = document.getElementById('studentsBody');
+            let html = '';
+            
+            students.forEach(student => {
+                const hasInternship = internships.some(i => i.studentId === student.studentId);
+                const internshipStatus = hasInternship ? 
+                    '<span class="status-badge active">Internship Active</span>' : 
+                    '<span class="status-badge completed">No Internship</span>';
+                
+                html += `
+                <tr>
+                    <td>${student.studentId}</td>
+                    <td>${student.name}</td>
+                    <td>${student.branch}</td>
+                    <td>${internshipStatus}</td>
+                </tr>`;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        function editInternship(id) {
+            const internship = internships.find(i => i.internshipId === id);
+            if(internship) {
+                document.getElementById('updateInternId').value = id;
+                document.getElementById('newDuration').value = internship.duration;
+                showMessage(`Editing internship ${id}`, 'success');
+            }
+        }
+
+        function deleteInternship(id) {
+            if(confirm('Are you sure you want to delete this internship?')) {
+                internships = internships.filter(i => i.internshipId !== id);
+                saveData();
+                showMessage('Internship deleted successfully', 'success');
+                displayInternships();
+                displayStudents();
+            }
+        }
+
+        // Initialize display
+        displayInternships();
+        displayStudents();
+    </script>
+</body>
+>>>>>>> 99443f2d6831b22f6951973f582fbaffd2dad029
 </html>

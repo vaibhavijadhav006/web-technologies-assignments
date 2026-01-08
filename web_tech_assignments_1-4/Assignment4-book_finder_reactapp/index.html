@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -491,4 +492,499 @@
         });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Finder - Assignment 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "📚";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .search-section {
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 3px solid #5c6bc0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: 0.3s;
+            background: white;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #1a237e;
+            box-shadow: 0 0 0 4px rgba(92, 107, 192, 0.2);
+        }
+        
+        .search-btn {
+            background: linear-gradient(135deg, #5c6bc0 0%, #3f51b5 100%);
+            color: white;
+            border: none;
+            padding: 0 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(92, 107, 192, 0.3);
+        }
+        
+        .search-btn:disabled {
+            background: #b0bec5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results-info {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .books-container {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+            height: 250px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+        
+        .no-cover {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a237e;
+            font-size: 4em;
+        }
+        
+        .book-info {
+            padding: 25px;
+        }
+        
+        .book-title {
+            color: #1a237e;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* WebKit: clamp to 2 lines */
+            overflow: hidden;
+            white-space: normal;
+            /* Fallback for non-WebKit browsers: limit height to ~2 lines */
+            max-height: calc(1.3em * 2);
+        }
+        
+        .book-author {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .book-author::before {
+            content: "✍️";
+        }
+        
+        .book-details {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            color: #666;
+        }
+        
+        .no-results h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #999;
+        }
+        
+        .loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #e0e0e0;
+            border-top: 5px solid #5c6bc0;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .footer {
+            background: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                padding: 15px;
+                justify-content: center;
+            }
+            
+            .books-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>📖 Book Finder</h1>
+            <p>Discover millions of books from around the world</p>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput"
+                    placeholder="Search for books by title, author, or keyword..."
+                    onkeypress="if(event.key === 'Enter') searchBooks()"
+                >
+                <button class="search-btn" id="searchBtn" onclick="searchBooks()">
+                    <span>🔍 Search</span>
+                </button>
+            </div>
+            <div class="results-info" id="resultsInfo"></div>
+        </div>
+        
+        <div class="books-container" id="booksContainer">
+            <div class="no-results" id="welcomeMessage">
+                <h3>Welcome to Book Finder!</h3>
+                <p>Enter a book title or author name above to start searching.</p>
+                <p>Try searching for: "Harry Potter", "The Lord of the Rings", "Sherlock Holmes"</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Powered by Open Library API | Assignment 4 - React Application</p>
+        </div>
+    </div>
+
+    <script>
+        let currentSearch = '';
+        let isLoading = false;
+
+        // Sample popular books for initial display
+        const popularBooks = [
+            {
+                title: "To Kill a Mockingbird",
+                author_name: ["Harper Lee"],
+                first_publish_year: 1960,
+                cover_i: 826117
+            },
+            {
+                title: "1984",
+                author_name: ["George Orwell"],
+                first_publish_year: 1949,
+                cover_i: 797159
+            },
+            {
+                title: "The Great Gatsby",
+                author_name: ["F. Scott Fitzgerald"],
+                first_publish_year: 1925,
+                cover_i: 746495
+            },
+            {
+                title: "Pride and Prejudice",
+                author_name: ["Jane Austen"],
+                first_publish_year: 1813,
+                cover_i: 717018
+            }
+        ];
+
+        // Display popular books on load
+        displayBooks(popularBooks, true);
+
+        async function searchBooks() {
+            const query = document.getElementById('searchInput').value.trim();
+            
+            if(!query) {
+                showMessage('Please enter a search term', 'error');
+                return;
+            }
+            
+            if(query === currentSearch && !isLoading) return;
+            
+            currentSearch = query;
+            isLoading = true;
+            updateUI();
+            
+            try {
+                const response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=12`);
+                const data = await response.json();
+                
+                if(data.docs && data.docs.length > 0) {
+                    displayBooks(data.docs, false);
+                    showMessage(`Found ${data.numFound} books for "${query}"`, 'success');
+                } else {
+                    showNoResults(query);
+                }
+            } catch(error) {
+                console.error('Error fetching books:', error);
+                showMessage('Failed to fetch books. Please try again.', 'error');
+                // Fallback to sample data
+                displayBooks(popularBooks, true);
+            }
+            
+            isLoading = false;
+            updateUI();
+        }
+
+        function displayBooks(books, isPopular) {
+            const container = document.getElementById('booksContainer');
+            const infoDiv = document.getElementById('resultsInfo');
+            
+            if(books.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <h3>📭 No Books Found</h3>
+                        <p>Try a different search term or check your spelling.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            books.forEach(book => {
+                const title = book.title || 'Untitled';
+                const authors = book.author_name ? book.author_name.join(', ') : 'Unknown Author';
+                const year = book.first_publish_year || 'N/A';
+                const coverId = book.cover_i;
+                
+                html += `
+                <div class="book-card">
+                    <div class="book-cover">
+                        ${coverId ? 
+                            `<img src="https://covers.openlibrary.org/b/id/${coverId}-M.jpg" alt="${title}" loading="lazy">` :
+                            `<div class="no-cover">📖</div>`
+                        }
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">${title}</h3>
+                        <p class="book-author">${authors}</p>
+                        <div class="book-details">
+                            <span>📅 ${year}</span>
+                            <span>⭐ ${book.ratings_average ? book.ratings_average.toFixed(1) : 'N/A'}</span>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            
+            container.innerHTML = html;
+            
+            if(isPopular) {
+                infoDiv.innerHTML = '<i>✨ Showing popular books. Search for specific titles above.</i>';
+            }
+        }
+
+        function showNoResults(query) {
+            const container = document.getElementById('booksContainer');
+            container.innerHTML = `
+                <div class="no-results">
+                    <h3>🔍 No Results for "${query}"</h3>
+                    <p>Try searching for different keywords or check your spelling.</p>
+                    <p style="margin-top: 20px;">
+                        <button onclick="showPopular()" style="
+                            background: #5c6bc0;
+                            color: white;
+                            border: none;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                        ">Show Popular Books</button>
+                    </p>
+                </div>
+            `;
+        }
+
+        function showPopular() {
+            displayBooks(popularBooks, true);
+            document.getElementById('searchInput').value = '';
+            currentSearch = '';
+            showMessage('Showing popular books', 'info');
+        }
+
+        function showMessage(text, type) {
+            const infoDiv = document.getElementById('resultsInfo');
+            infoDiv.textContent = text;
+            infoDiv.style.color = type === 'error' ? '#d32f2f' : 
+                                 type === 'success' ? '#388e3c' : '#5c6bc0';
+        }
+
+        function updateUI() {
+            const searchBtn = document.getElementById('searchBtn');
+            const container = document.getElementById('booksContainer');
+            
+            if(isLoading) {
+                searchBtn.innerHTML = '<span>⏳ Searching...</span>';
+                searchBtn.disabled = true;
+                container.innerHTML = `
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Searching books...</p>
+                    </div>
+                `;
+            } else {
+                searchBtn.innerHTML = '<span>🔍 Search</span>';
+                searchBtn.disabled = false;
+            }
+        }
+
+        // Add some interactivity
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            if(e.target.value === '') {
+                showPopular();
+            }
+        });
+    </script>
+</body>
+>>>>>>> 99443f2d6831b22f6951973f582fbaffd2dad029
 </html>

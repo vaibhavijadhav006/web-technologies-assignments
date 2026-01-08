@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,4 +199,206 @@
         </footer>
     </div>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog - Assignment 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .blog-post {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .post-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .post-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 My Personal Blog</h1>
+            <p>Sharing my journey in web development</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">🏠 Home</a></li>
+                <li><a href="#">📝 Blog</a></li>
+                <li><a href="#">👤 About</a></li>
+                <li><a href="#">📧 Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="main-content">
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <h2 class="post-title">Getting Started with Web Development</h2>
+                    <div class="post-date">Published: January 15, 2024</div>
+                    <p>This week, I dove deep into HTML5 and CSS3. Learned about semantic elements, flexbox, and grid layouts. The most exciting part was creating responsive designs that work on all devices!</p>
+                </div>
+                
+                <div class="blog-post">
+                    <h2 class="post-title">CSS Animations Magic</h2>
+                    <div class="post-date">Published: January 10, 2024</div>
+                    <p>Explored CSS transitions and animations today. Created some cool hover effects and loading animations. Keyframes are powerful for creating complex animations without JavaScript!</p>
+                </div>
+                
+                <div class="blog-post">
+                    <h2 class="post-title">Bootstrap Framework</h2>
+                    <div class="post-date">Published: January 5, 2024</div>
+                    <p>Started learning Bootstrap 5. It's amazing how quickly you can build professional-looking websites with its components and grid system. The utility classes are a game-changer!</p>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="profile-img">👨‍💻</div>
+                <h3>About Me</h3>
+                <p>Hi! I'm a Computer Science student passionate about web technologies. This blog documents my learning journey in frontend development.</p>
+                
+                <h3 style="margin-top: 30px;">Categories</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✅ HTML & CSS</li>
+                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✅ JavaScript</li>
+                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✅ Responsive Design</li>
+                    <li style="padding: 8px 0;">✅ Web Tools</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 My Personal Blog | Assignment 1 - HTML & CSS</p>
+        </footer>
+    </div>
+</body>
+>>>>>>> 99443f2d6831b22f6951973f582fbaffd2dad029
 </html>
