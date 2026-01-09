@@ -47,7 +47,7 @@ After assigning a mentor, check the `email_logs` table:
 Your current settings in `includes/config.php`:
 ```php
 SMTP_USERNAME: '9f7dff001@smtp-brevo.com'
-SMTP_PASSWORD: 'xsmtpsib-a996a0a9c03184a3b8b71640bb866c22b127fa0494b495cdd6ae97c8fdc11b86-7go3Cc4PstAB9ujK'
+SMTP_PASSWORD: 'dummy_key"
 ```
 
 **To verify these are correct:**
